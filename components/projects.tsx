@@ -1,20 +1,138 @@
-import Image from "next/image";
-
-import Card from "./card";
-import Container from "./container";
-import { Button } from "./ui/button";
-import { ArrowUpRight, Github, Link } from "lucide-react";
-import { Badge } from "./ui/badge";
-
-import lms from "@/public/images/lms.png";
+import easycargo from "@/public/images/easycargo.png";
+import kingscourt from "@/public/images/kingscourt.png";
 import tenmg from "@/public/images/10mg.png";
 import kma from "@/public/images/kma.png";
 import gbmobile from "@/public/images/gb-mobile.png";
 import pz from "@/public/images/pz.png";
 import gbweb from "@/public/images/gb-web.png";
 import storefront from "@/public/images/storefront.png";
+import ProjectCard from "./project-card";
 
 const Projects = () => {
+  const projectData = [
+    {
+      name: "Kingscourt Realtors Ltd.",
+      description: `This is a real estate platform for buying and selling of properties.`,
+      technologies: [
+        "NextJs 13",
+        "React",
+        "React Query",
+        "Firebase",
+        "Firestore",
+        "Tailwind",
+        "Firebase Auth",
+        "Shadcn-ui",
+      ],
+      liveDemoLink: "https://www.kingscourtrealtors.com/",
+      githubLink: "https://www.kingscourtrealtors.com/",
+      imageUrl: kingscourt.src,
+    },
+    {
+      name: "Easycargo Africa Ltd.",
+      description: `This app is a logisitics platform for sending and receiving goods. 
+      This app is developed to help businesses to easily manage their logistics activities. 
+      This app is developed with Flutter for both iOS and Android and Nextjs for the Web version.`,
+      technologies: [
+        "NextJs 13",
+        "React",
+        "Stripe",
+        "Mux",
+        "Prisma",
+        "Tailwind",
+        "MySQL",
+        "Shadcn-ui",
+      ],
+      liveDemoLink: "https://www.easycargoafrica.com/",
+      githubLink: "https://www.easycargoafrica.com/",
+      imageUrl: easycargo.src,
+    },
+    {
+      name: "10mg Pharma Website",
+      description: `This is a website developed for a pharmaceutical company. This company helps improve the quality 
+      life of people suffering from chronic pains. They are doing this through AI-driven financing with innovative and 
+      effective pharmaceutical solutions.`,
+      technologies: ["React", "Tailwind"],
+      liveDemoLink: "https://10mg.co.uk",
+      githubLink: "https://github.com/greenbii/10mg_revamp.git",
+      imageUrl: tenmg.src,
+    },
+    {
+      name: "Krizbeatz Music Academy",
+      description: `This app is a platform for music enthusiast who wants to learn how to make music online with live classes. This classes are taken by Krizbeatz the Drummerboy himself.`,
+      technologies: [
+        "React",
+        "Paystack",
+        "Google Classroom",
+        "Tailwind",
+        "Supabase",
+        "Shadcn-ui",
+        "Python",
+      ],
+      liveDemoLink: "https://krizbeatzmusicacademy.com/",
+      githubLink: "https://github.com/WAWSOUNDS/kma-app.git",
+      imageUrl: kma.src,
+    },
+    {
+      name: "Greenbii Mobile App",
+      description:
+        "This app is an ERM Platform for businesses to manage their business activities. This app helps businesses to also manage their employees, office tasks, to mention a few. The app was developed with Flutter for both iOS and Android.",
+      technologies: [
+        "Flutter",
+        "Dart",
+        "AWS Cognito",
+        "AWS Amplify",
+        "dio",
+        "Rest",
+        "Provider",
+      ],
+      liveDemoLink: "https://greenbii.com/",
+      githubLink: "https://greenbii.com/",
+      imageUrl: gbmobile.src,
+    },
+    {
+      name: "Power Zone Batteries Website",
+      description:
+        "This website is a personal website for Cleanmeter Systems for distribution of Solar batteries to its customers. I teamed up with the Cleanmeter developer team to develop this website.",
+      technologies: ["Astro", "Python", "FastApi", "Firestore", "Tailwind"],
+      liveDemoLink: "https://www.powerzone.energy/",
+      githubLink: "https://www.powerzone.energy/",
+      imageUrl: pz.src,
+    },
+    {
+      name: "Greenbii ERP Sofware",
+      description:
+        "This website is developed to cater for businesses to easily manage their business activities. I am part of the Greenbii team as at when this website was developed. We came together to work in a sprint in other to achieve this working software.",
+      technologies: [
+        "Angular",
+        "Typescript",
+        "NodeJs",
+        "AWS",
+        "HTML",
+        "Bootstrap",
+        "CSS",
+      ],
+      liveDemoLink: "https://greenbii.com/",
+      githubLink: "https://greenbii.com/",
+      imageUrl: gbweb.src,
+    },
+    {
+      name: "Greenbii Storefront Sofware",
+      description:
+        "This is an Ecommerce platform for users to buy and sell. Users can easily make payment before delivery or on delivery and each order made is being managed by the store owner who is entitled to a dashboard. This web app was made privately for Greenbii as part of their software collections.",
+      technologies: [
+        "Nextjs App Router",
+        "Typescript",
+        "React",
+        "React Query",
+        "Tailwind",
+        "Shadcn-ui",
+      ],
+      liveDemoLink: "https://app.greenbii.com/auth/app/storefront_cikvm",
+      githubLink: "https://app.greenbii.com/auth/app/storefront_cikvm",
+      imageUrl: storefront.src,
+    },
+  ];
+
   return (
     <div className="px-0 pt-20">
       <h1 className="text-4xl font-bold">
@@ -26,303 +144,17 @@ const Projects = () => {
         development
       </p>
 
-      {/* LMS Project */}
-      <Card className="my-7 flex flex-col md:flex-row justify-between items-center gap-7">
-        <div className="w-full h-full bg-gradient-to-r from-[#fbed96] to-[#abecd6] rounded-lg p-8">
-          <Image src={lms} alt="project1" />
-        </div>
-        <div>
-          <h1 className="text-2xl font-bold">LMS Platform</h1>
-          <p className="text-muted-foreground">
-            This app is an LMS platform for course tutors who are interested in
-            selling their courses to students all around the world. This app was
-            developed using NextJs 13. I developed the app form scratch. It also
-            include Stripe for making payments.
-          </p>
-          <div className="flex flex-wrap justify-start items-center gap-2 my-4">
-            <Badge className="bg-red-400">NextJs 13</Badge>
-            <Badge className="bg-blue-300">React</Badge>
-            <Badge className="bg-black">Stripe</Badge>
-            <Badge className="bg-green-300">Mux</Badge>
-            <Badge className="bg-slate-300">Prisma</Badge>
-            <Badge className="bg-blue-800">Tailwind</Badge>
-            <Badge className="bg-slate-300">MySQL</Badge>
-            <Badge className="bg-black">Shadcn-ui</Badge>
-          </div>
-          <div className="flex justify-start items-center mt-7">
-            <a
-              href="https://kma-dashb.vercel.app/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Button className="rounded-full">
-                Live Demo <ArrowUpRight className="w-5 h5 ml-2" />
-              </Button>
-            </a>
-            <a
-              href="https://github.com/Abbeydevs/kma-dashboard.git"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Button variant="ghost" className="rounded-full">
-                See on Github <Github className="w-5 h5 ml-2" />
-              </Button>
-            </a>
-          </div>
-        </div>
-      </Card>
-
-      {/* 10mg Project */}
-      <Card className="my-7  flex flex-col md:flex-row items-center gap-7">
-        <div>
-          <Badge className="bg-gray-500 mb-5">Private Github Project</Badge>
-          <h1 className="text-2xl font-bold">10mg Pharma Website</h1>
-
-          <p className="text-muted-foreground">
-            This is a website developed for a pharmaceutical company. This
-            company helps improve the quality life of people suffering from
-            chronic pains. They are doing this through AI-driven financing with
-            innovative and effective pharmaceutical solutions.
-          </p>
-          <div className="flex flex-wrap justify-start items-center gap-2 my-4">
-            <Badge className="bg-black">React</Badge>
-            <Badge className="bg-blue-800">Tailwind</Badge>
-          </div>
-          <div className="flex justify-start items-center mt-7">
-            <a
-              href="https://10mg.co.uk"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button className="rounded-full">
-                Live Demo <ArrowUpRight className="w-5 h5 ml-2" />
-              </Button>
-            </a>
-            <a
-              href="https://github.com/greenbii/10mg_revamp.git"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button variant="ghost" className="rounded-full">
-                See on Github <Github className="w-5 h5 ml-2" />
-              </Button>
-            </a>
-          </div>
-        </div>
-        <div className="w-full h-full bg-gradient-to-r from-[#949494] to-[#0bebff] rounded-lg p-8">
-          <Image src={tenmg} alt="project2" />
-        </div>
-      </Card>
-
-      {/* KMA Project */}
-      <Card className="my-7  flex flex-col md:flex-row items-center gap-7">
-        <div className="w-full h-full bg-gradient-to-r from-[#fb8282] to-[#55bbff] rounded-lg p-8">
-          <Image src={kma} alt="kma" />
-        </div>
-        <div>
-          <Badge className="bg-gray-500 mb-5">Private Github Project</Badge>
-          <h1 className="text-2xl font-bold">Krizbeatz Music Academy</h1>
-          <p className="text-muted-foreground">
-            This app is a platform for music enthusiast who wants to learn how
-            to make music online with live classes. This classes are taken by
-            Krizbeatz the Drummerboy himself.
-          </p>
-          <div className="flex flex-wrap justify-start items-center gap-2 my-4">
-            <Badge className="bg-blue-300">React</Badge>
-            <Badge className="bg-black">Paystack</Badge>
-            <Badge className="bg-slate-300">Google Classroom</Badge>
-            <Badge className="bg-blue-800">Tailwind</Badge>
-            <Badge className="bg-green-300">Supabase</Badge>
-            <Badge className="bg-black">Shadcn-ui</Badge>
-            <Badge className="bg-black">Python</Badge>
-          </div>
-          <div className="flex justify-start items-center mt-7">
-            <a
-              href="https://krizbeatzmusicacademy.com/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Button className="rounded-full">
-                Live Demo <ArrowUpRight className="w-5 h5 ml-2" />
-              </Button>
-            </a>
-            <a
-              href="https://github.com/WAWSOUNDS/kma-app.git"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Button variant="ghost" className="rounded-full">
-                See on Github <Github className="w-5 h5 ml-2" />
-              </Button>
-            </a>
-          </div>
-        </div>
-      </Card>
-
-      {/* Greenbii Mobile App Project */}
-      <Card className="my-7  flex flex-col md:flex-row items-center gap-7">
-        <div>
-          <Badge className="bg-gray-500 mb-5">Private Github Project</Badge>
-          <h1 className="text-2xl font-bold">Greenbii Mobile App</h1>
-          <p className="text-muted-foreground">
-            This app is an ERM Platform for businesses to manage their business
-            activities. This app helps businesses to also manage their
-            employees, office tasks, to mention a few. The app was developed
-            with Flutter for both iOS and Android.
-          </p>
-          <div className="flex flex-wrap justify-start items-center gap-2 my-4">
-            <Badge className="bg-black">Flutter</Badge>
-            <Badge className="bg-blue-800">Dart</Badge>
-            <Badge className="bg-red-800">AWS Cognito</Badge>
-            <Badge className="bg-gray-600">AWS Amplify</Badge>
-            <Badge className="bg-blue-800">REST</Badge>
-            <Badge className="bg-green-800">dio</Badge>
-            <Badge className="bg-yellow-800">Provider</Badge>
-          </div>
-          <div className="flex justify-start items-center mt-7">
-            <a href="https://greenbii.com/" target="_blank" rel="noreferrer">
-              <Button className="rounded-full">
-                Live Demo <ArrowUpRight className="w-5 h5 ml-2" />
-              </Button>
-            </a>
-            <a href="https://greenbii.com/" target="_blank" rel="noreferrer">
-              <Button variant="ghost" className="rounded-full">
-                See on Github <Github className="w-5 h5 ml-2" />
-              </Button>
-            </a>
-          </div>
-        </div>
-        <div className="w-full h-full bg-gradient-to-r from-[#ffdc74] to-[#abecd6] rounded-lg p-8">
-          <Image src={gbmobile} alt="greenbii mobile" />
-        </div>
-      </Card>
-
-      {/* PowerZone Project */}
-      <Card className="my-7  flex flex-col md:flex-row items-center gap-7">
-        <div className="w-full h-full bg-gradient-to-r from-[#ffd04e] to-[#ffb0b0] rounded-lg p-8">
-          <Image src={pz} alt="powerzone" />
-        </div>
-        <div>
-          <Badge className="bg-gray-500 mb-5">Private Github Project</Badge>
-          <h1 className="text-2xl font-bold">Power Zone Batteries Website</h1>
-          <p className="text-muted-foreground">
-            This website is a personal website for Cleanmeter Systems for
-            distribution of Solar batteries to its customers. I teamed up with
-            the Cleanmeter developer team to develop this website.
-          </p>
-          <div className="flex flex-wrap justify-start items-center gap-2 my-4">
-            <Badge className="bg-black">Astro</Badge>
-            <Badge className="bg-blue-800">Python</Badge>
-            <Badge className="bg-red-800">Fastapi</Badge>
-            <Badge className="bg-gray-600">Firestore</Badge>
-            <Badge className="bg-blue-800">Tailwind</Badge>
-          </div>
-          <div className="flex justify-start items-center mt-7">
-            <a
-              href="https:///www.powerzone.energy/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Button className="rounded-full">
-                Live Demo <ArrowUpRight className="w-5 h5 ml-2" />
-              </Button>
-            </a>
-            <a
-              href="https:///www.powerzone.energy/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Button variant="ghost" className="rounded-full">
-                See on Github <Github className="w-5 h5 ml-2" />
-              </Button>
-            </a>
-          </div>
-        </div>
-      </Card>
-
-      {/* Greenbii Project */}
-      <Card className="my-7 flex flex-col md:flex-row items-center gap-7">
-        <div>
-          <Badge className="bg-gray-500 mb-5">Private Github Project</Badge>
-          <h1 className="text-2xl font-bold">Greenbii ERP Sofware</h1>
-          <p className="text-muted-foreground">
-            This website is developed to cater for businesses to easily manage
-            their business activities. I am part of the Greenbii team as at when
-            this website was developed. We came together to work in a sprint in
-            other to achieve this working software.
-          </p>
-          <div className="flex flex-wrap justify-start items-center gap-2 my-4">
-            <Badge className="bg-black">Angular</Badge>
-            <Badge className="bg-blue-800">Typescript</Badge>
-            <Badge className="bg-red-800">Nodejs</Badge>
-            <Badge className="bg-gray-600">AWS</Badge>
-            <Badge className="bg-yellow-400">HTML</Badge>
-            <Badge className="bg-blue-800">CSS</Badge>
-            <Badge className="bg-black">Bootstrap</Badge>
-          </div>
-          <div className="flex justify-start items-center mt-7">
-            <a href="https://greenbii.com/" target="_blank" rel="noreferrer">
-              <Button className="rounded-full">
-                Live Demo <ArrowUpRight className="w-5 h5 ml-2" />
-              </Button>
-            </a>
-            <a href="https://greenbii.com/" target="_blank" rel="noreferrer">
-              <Button variant="ghost" className="rounded-full">
-                See on Github <Github className="w-5 h5 ml-2" />
-              </Button>
-            </a>
-          </div>
-        </div>
-        <div className="w-full h-full bg-gradient-to-r from-[#fbed96] to-[#abecd6] rounded-lg p-8">
-          <Image src={gbweb} alt="greenbii web" />
-        </div>
-      </Card>
-
-      {/* Greenbii StoreFront Project */}
-      <Card className="my-7  flex flex-col md:flex-row items-center gap-7">
-        <div className="w-full h-full bg-gradient-to-r from-[#fbed96] to-[#abecd6] rounded-lg p-8">
-          <Image src={storefront} alt="project1" />
-        </div>
-        <div>
-          <Badge className="bg-gray-500 mb-5">Private Github Project</Badge>
-          <h1 className="text-2xl font-bold">Greenbii Storefront Software</h1>
-          <p className="text-muted-foreground">
-            This is an Ecommerce platform for users to buy and sell. Users can
-            easily make payment before delivery or on delivery and each order
-            made is being managed by the store owner who is entitled to a
-            dashboard. This web app was made privately for Greenbii as part of
-            their software collections.
-          </p>
-          <div className="flex flex-wrap justify-start items-center gap-2 my-4">
-            <Badge className="bg-black">Nextjs 14</Badge>
-            <Badge className="bg-blue-800">Typescript</Badge>
-            <Badge className="bg-red-800">React</Badge>
-            <Badge className="bg-gray-600">React Query</Badge>
-            <Badge className="bg-yellow-400">Tailwind</Badge>
-            <Badge className="bg-blue-800">Shadcn-ui</Badge>
-          </div>
-          <div className="flex justify-start items-center mt-7">
-            <a
-              href="https://app.greenbii.com/auth/app/storefront_cikvm"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Button className="rounded-full">
-                Live Demo <ArrowUpRight className="w-5 h5 ml-2" />
-              </Button>
-            </a>
-            <a
-              href="https://github.com/greenbii/new_store-front_frontend.git"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Button variant="ghost" className="rounded-full">
-                See on Github <Github className="w-5 h5 ml-2" />
-              </Button>
-            </a>
-          </div>
-        </div>
-      </Card>
+      {projectData.map((project, index) => (
+        <ProjectCard
+          key={index}
+          name={project.name}
+          description={project.description}
+          technologies={project.technologies}
+          liveDemoLink={project.liveDemoLink}
+          githubLink={project.githubLink}
+          imageUrl={project.imageUrl!}
+        />
+      ))}
     </div>
   );
 };
